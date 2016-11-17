@@ -20,10 +20,10 @@ namespace GG.Controllers
 
         //[System.Web.Http.AcceptVerbs("GET")]
         [System.Web.Http.HttpGet]
-        public List<Jogador> listarjogador(/*string nome*/)
+        public List<Jogador> listarjogador(string nome = "")
         {
             var jogador = new Jogador();
-            return jogador.BuscarJogador(/*""nome*/);
+            return jogador.BuscarJogador(nome);
         }
     
     }

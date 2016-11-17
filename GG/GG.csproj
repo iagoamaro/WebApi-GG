@@ -160,12 +160,14 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JogadorController.cs" />
     <Compile Include="Controllers\perguntaController.cs" />
+    <Compile Include="Controllers\rankingController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Jogador.cs" />
     <Compile Include="Models\Pergunta.cs" />
+    <Compile Include="Models\Ranking.cs" />
     <Compile Include="Models\Retornojson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

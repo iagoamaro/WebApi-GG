@@ -55,24 +55,24 @@ namespace GG.Models
             player.Id = Codigo;
             return "OK";
         }
-        public List<Jogador> BuscarJogador()
+        public List<Jogador> BuscarJogador(string vnome)
         {
             DataTable tabela = new DataTable();
             string conexao = ConfigurationManager.ConnectionStrings["ConexaoBD"].ConnectionString;
-           
-            //if (vnome.Trim().Length == 0)
-            //{
-            //    SqlDataAdapter da = new SqlDataAdapter("select * from jogadores", conexao);
-            //    da.Fill(tabela);
-            //}
-            //else
-            //{
-            //    SqlDataAdapter da = new SqlDataAdapter("select * from jogadores where NOME like @nome", conexao);
-            //   // da.SelectCommand.Parameters.Add("@nome", SqlDbType.Text).Value = vnome + "%";
-            //    da.Fill(tabela);
-            //}
-            SqlDataAdapter da = new SqlDataAdapter("select * from jogadores", conexao);
-            da.Fill(tabela);
+
+            if (vnome.Trim().Length == 0)
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from jogadores", conexao);
+                da.Fill(tabela);
+            }
+            else
+            {
+                SqlDataAdapter da = new SqlDataAdapter("select * from jogadores where NOME like @nome", conexao);
+                da.SelectCommand.Parameters.Add("@nome", SqlDbType.Text).Value = vnome + "%";
+                da.Fill(tabela);
+            }
+            //SqlDataAdapter da = new SqlDataAdapter("select * from jogadores", conexao);
+            //da.Fill(tabela);
 
             return tabela.AsEnumerable().Select(r => new Jogador { Id = (int)r["id"], Nome = r["nome"].ToString() }).ToList();
 
