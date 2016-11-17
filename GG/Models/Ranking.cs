@@ -24,7 +24,7 @@ namespace GG.Models
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["ConexaoBD"].ConnectionString;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "insert into Ranking(idJogador,pontuaçao) values (@idjogador,pontuacao); select @@IDENTITY;";
+                cmd.CommandText = "insert into Ranking(idJogador,Pontuacao) values (@idjogador,@pontuacao); select @@IDENTITY;";
 
                 cmd.Parameters.AddWithValue("@idjogador", r.idJogador);
 
